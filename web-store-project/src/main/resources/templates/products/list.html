@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Products</title>
+<link rel="stylesheet" type="text/css" th:href="@{../styles.css}" />
+</head>
+<body>
+
+	<h1>Products</h1>
+	<div class="shop-items">
+		<div class="shop-item" th:each="product : ${products}">
+
+			<span class="shop-item-title" th:text="${product.productName}">Name</span>
+			<img class="shop-item-image" th:src="@{'../images/' + ${product.productImgUrl} + '.jpg'}">
+			<div class="shop-item-details">
+				<span class="shop-item-price" th:text="'$' + ${product.productPrice}">0.00</span>
+				<button class="btn btn-primary shop-item-button" type="button">ADD
+					TO CART</button>
+			</div>
+		<br>
+		</div>
+	</div>
+
+
+</body>
+</html>
